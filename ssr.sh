@@ -625,20 +625,12 @@ Download_SSR(){
 	echo -e "${Info} ShadowsocksR服务端 下载完成 !"
 }
 Service_SSR(){
-	if [[ ${release} = "centos" ]]; then
-		if ! wget --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/service/ssr_centos -O /etc/init.d/ssr; then
-			echo -e "${Error} ShadowsocksR服务 管理脚本下载失败 !" && exit 1
-		fi
-		chmod +x /etc/init.d/ssr
-		chkconfig --add ssr
-		chkconfig ssr on
-	else
-		if ! wget --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/service/ssr_debian -O /etc/init.d/ssr; then
-			echo -e "${Error} ShadowsocksR服务 管理脚本下载失败 !" && exit 1
-		fi
-		chmod +x /etc/init.d/ssr
-		update-rc.d -f ssr defaults
+	if ! wget --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/service/ssr_centos -O /etc/init.d/ssr; then
+		echo -e "${Error} ShadowsocksR服务 管理脚本下载失败 !" && exit 1
 	fi
+	chmod +x /etc/init.d/ssr
+	chkconfig --add ssr
+	chkconfig ssr on
 	echo -e "${Info} ShadowsocksR服务 管理脚本下载完成 !"
 }
 # 安装 JQ解析器
