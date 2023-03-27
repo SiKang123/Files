@@ -1,0 +1,14 @@
+﻿#NoTrayIcon
+!c::
+send,^{c}
+return
+v::
+send,^{v}
+return
+a::
+send,^{a}
+return
+F8::
+msgbox,4100,退出成功,热键退出!,1
+exitapp
+return
